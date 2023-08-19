@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model EDeskOutSourcing.Models.ProjectApplication
+
+@{
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Apply</title>
+</head>
+<body>
+
+<h4>ProjectApplication</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <div>
+                <b>Freelancer Name: @Context.Session.GetString("FirstName")</b>
+            </div>
+        <form asp-action="Apply">
+            <input type="hidden" asp-for="FreelancerID"/>
+            <input type="hidden" asp-for="ProjectID"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+           @* <div class="form-group">
+                <label asp-for="FreelancerID" class="control-label"></label>
+                <input asp-for="FreelancerID" class="form-control" />
+                <span asp-validation-for="FreelancerID" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="ProjectID" class="control-label"></label>
+                <input asp-for="ProjectID" class="form-control" />
+                <span asp-validation-for="ProjectID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ApplicationDate" class="control-label"></label>
+                <input asp-for="ApplicationDate" class="form-control" />
+                <span asp-validation-for="ApplicationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationTitle" class="control-label"></label>
+                <input asp-for="ApplicationTitle" class="form-control" />
+                <span asp-validation-for="ApplicationTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

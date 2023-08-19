@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SkillCategory>
+<h1>Skill Category List</h1>
+<a asp-action="Create" class="btn btn-success">Create New</a>
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Skill Category ID</td>
+                <td>Skill Category Name </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var temp in Model)
+            {
+                <tr>
+                    <td>@temp.SkillCategoryID</td>
+                    <td>@temp.SkillCategoryName</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="SkillCategory" class="btn btn-success" asp-route-id="@temp.SkillCategoryID">Edit</a>
+                        <a asp-action="Delete" asp-controller="SkillCategory" class="btn btn-danger" asp-route-id="@temp.SkillCategoryID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

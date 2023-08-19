@@ -1,0 +1,54 @@
+﻿@model EDeskOutSourcing.ViewModels.ProjectVM
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ProjectStages</h4>
+<hr />
+<div>
+    <form asp-action="Edit" asp-controller="ProjectStages">
+        <div>
+            <input type="hidden" asp-for="ProjectID" />
+@*            <input type="hidden" asp-for="ProjectStagesID" />
+*@         <table align="center" class="table">
+                <tr>
+                    <th align="center" class="row-cols-2">
+                        <label asp-for="ProjectName" class="control-label">Project Name</label>
+                        <select asp-for="ProjectID" asp-items=@ViewBag.PID class="form-control">
+                            <option>Select Project</option>
+                        </select>
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.ProjectStagesVMs )
+                {
+                    <tr>
+                    <td>
+                        <input asp-for="@item.ProjectStagesName" name="PName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="@item.DurationInHours" name="DName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="@item.StepsDescription" name="SName" class="form-control" />
+                    </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

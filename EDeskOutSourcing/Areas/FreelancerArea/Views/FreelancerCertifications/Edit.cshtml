@@ -1,0 +1,53 @@
+﻿@model EDeskOutSourcing.Models.FreelancerCertifications
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>FreelancerCertifications</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="FreelancerID"/>
+            <input type="hidden" asp-for="FreelancerCertificationsID"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="FreelancerCertificationsID" class="control-label"></label>
+                <input asp-for="FreelancerCertificationsID" class="form-control" />
+                <span asp-validation-for="FreelancerCertificationsID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FreelancerID" class="control-label"></label>
+                <input asp-for="FreelancerID" class="form-control" />
+                <span asp-validation-for="FreelancerID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="CertificateTitle" class="control-label"></label>
+                <input asp-for="CertificateTitle" class="form-control" />
+                <span asp-validation-for="CertificateTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassingYear" class="control-label"></label>
+                <input asp-for="PassingYear" class="form-control" />
+                <span asp-validation-for="PassingYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UniversityInstituteName" class="control-label"></label>
+                <input asp-for="UniversityInstituteName" class="form-control" />
+                <span asp-validation-for="UniversityInstituteName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

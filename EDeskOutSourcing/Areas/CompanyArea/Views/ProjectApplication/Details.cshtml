@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjectApplication>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ProjectApplication</h4>
+
+<table>
+   <tr>
+       <th>Sr No</th>
+       <th>Freelancer Name</th>
+       <th>Application Title</th>
+       <th>Application Date</th>
+   </tr>
+        @{
+            var SrNo = 1;
+        }
+        @foreach (var temp in Model)
+        {
+            <tr>
+                <td>@SrNo</td>
+                <td>@temp.Freelancer.FirstName</td>
+                <td>@temp.ApplicationTitle</td>
+                <td>@temp.ApplicationDate</td>
+                <td>
+                    <a asp-action="Profile" asp-controller="ProjectApplication" class="btn btn-success" asp-route-id="@temp.FreelancerID"> View Profile</a>
+                </td>
+            </tr>
+        }
+</table>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

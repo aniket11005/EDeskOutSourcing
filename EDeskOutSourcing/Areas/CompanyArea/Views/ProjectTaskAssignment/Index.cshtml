@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ProjectTaskAssignment>
+@*@{
+    Layout = null;
+}*@
+<h1>Project Task Assignment List</h1>
+<a asp-action="Create" asp-controller="ProjectTaskAssignment" asp-area="CompanyArea" class="btn btn-success">Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>Freelancer Name</th>
+            <th>Assigned Date</th>
+            <th>Expected Completion Date</th>
+        </tr>
+    </thead>
+    @{
+        var SrNo=1;
+    }
+    <tbody>
+        @foreach (var temp in Model)
+        {
+            <tr>
+                <th>@SrNo</th>
+                <td>@temp.Freelancer.FirstName</td>
+                <td>@temp.AssignedDate</td>
+                <td>
+                    @temp.ExpectedCompletionDate
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="ProjectTaskAssignment" asp-area="CompanyArea" asp-route-id="@temp.ProjectTaskAssignmentID" class="btn btn-success">Edit</a>
+                    <a asp-action="Delete" asp-controller="ProjectTaskAssignment" asp-area="CompanyArea" asp-route-id="@temp.ProjectTaskAssignmentID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            SrNo++;
+        }
+    </tbody>
+</table>

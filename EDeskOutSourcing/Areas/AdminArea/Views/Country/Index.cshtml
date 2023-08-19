@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Country>
+<h2>Country Details</h2>
+<a asp-action="Create" class="btn btn-success"> Create New </a>
+<div>
+    <table class ="table table-bordered ">
+        <thead>
+        <tr>
+            <td>Country ID</td>
+            <td>Country Name</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach(var temp in Model)
+        {
+            <tr>
+                <td>@temp.CountryID</td>
+                <td>@temp.CountryName</td>
+                <td>
+                        <a asp-action="Edit" asp-route-id="@temp.CountryID" class="btn btn-success">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@temp.CountryID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

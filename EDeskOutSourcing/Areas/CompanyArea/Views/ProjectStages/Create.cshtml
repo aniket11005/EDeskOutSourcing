@@ -1,0 +1,103 @@
+﻿@model EDeskOutSourcing.Models.ProjectStages
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+
+
+<h4>ProjectStages</h4>
+<hr />
+<div>
+    <form asp-action="Create" asp-controller="ProjectStages">
+        <div>
+            Company Name:@Context.Session.GetString("CompanyName")
+        </div>
+        <div>
+            <input type="hidden" asp-for="ProjectStagesID" />
+            <table align="center" class="table">
+                <tr>
+                    <th align="center" class="row-cols-2">
+                        <label asp-for="Project.ProjectName" class="control-label">Project Name</label>
+                        <select asp-for="ProjectID" asp-items=@ViewBag.PID class="form-control">
+                            <option>Select Project</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th align="center"><label asp-for="ProjectStagesName" class="control-label"> Project Stages Name</label></th>
+                    <th align="center"><label asp-for="DurationInHours" class="control-label">Duration In Hours</label> </th>
+                    <th align="center"><label asp-for="StepsDescription" class="control-label">Steps Description</label> </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input asp-for="ProjectStagesName" name="PName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="DurationInHours" name="DName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="StepsDescription" name="SName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input asp-for="ProjectStagesName" name="PName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="DurationInHours" name="DName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="StepsDescription" name="SName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input asp-for="ProjectStagesName" name="PName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="DurationInHours" name="DName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="StepsDescription" name="SName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input asp-for="ProjectStagesName" name="PName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="DurationInHours" name="DName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="StepsDescription" name="SName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input asp-for="ProjectStagesName" name="PName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="DurationInHours" name="DName" class="form-control" />
+                    </td>
+                    <td>
+                        <input asp-for="StepsDescription" name="SName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

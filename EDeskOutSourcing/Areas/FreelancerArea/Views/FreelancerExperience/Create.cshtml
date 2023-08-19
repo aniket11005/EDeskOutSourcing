@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model EDeskOutSourcing.Models.FreelancerExperience
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>FreelancerExperience</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+@*            <input type="hidden" asp-for="FreelancerID" />
+*@            <table class="table table-bordered">
+                <div>
+                    <b> Freelancer Name:@Context.Session.GetString("FirstName")</b>
+                </div>
+                @for (var i = 0; i <4; i++)
+                {
+                    <tr>
+                        <th>Experience IN Months</th>
+                        <th>RoleName</th>
+                    </tr>
+                    <tr>
+                        <td><input asp-for="ExperienceInMonths" name ="EName"class="form-control" /></td>
+                        <td><input asp-for="RoleName"name="RName" class="form-control" /></td>
+
+                    </tr>
+
+                }
+            </table>
+                <input type="submit" value="Create" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

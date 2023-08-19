@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Education>
+<h1>Education List</h1>
+<a asp-action="Create" class="btn btn-success">Create New</a>
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Education ID</td>
+                <td>Education Name</td>
+                <td>Education Type</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var temp in Model)
+            {
+                <tr>
+                    <td>@temp.EducationID</td>
+                    <td>@temp.EducationName</td>
+                    <td>@temp.EducationType</td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-success" asp-controller="Education" asp-route-id="@temp.EducationID">Edit</a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-controller="Education" asp-route-id="@temp.EducationID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

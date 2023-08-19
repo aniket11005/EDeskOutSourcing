@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SelectedApplication>
+@{
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+<h1>Index Details</h1>
+<div style="width:1036px;margin-left:50px;margin-right:50px;display:flex">
+
+    <a asp-action="Assigned" class="btn btn-success" asp-controller="ProjectAssigned" asp-area="CompanyArea" style="width:600px">Assigned Project</a>
+    <a asp-action="NotAssigned" class="btn btn-danger" asp-controller="ProjectAssigned" asp-route-id="" asp-area="CompanyArea" style="width:600px">Not Assigned Project</a>
+</div>
+@*<a asp-action="Create" asp-controller="Project" asp-area="CompanyArea" class="btn btn-success">Create</a>
+*@<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Sr No</td>
+            <td>Freelancer Name</td>
+            <td>Selection Date</td>
+            <td>Need Start Date</td>
+            <td>Any Remark</td>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var SrNo = 1;
+        }
+        @foreach (var temp in Model)
+        {
+            <tr>
+                <td>@SrNo</td>
+                <td>@temp.ProjectApplication.Freelancer.FirstName</td>
+                <td>@temp.SelectionDate</td>
+                <td>@temp.NeedStartDate</td>
+                <td>@temp.AnyRemark</td>
+                <td>
+                    <a asp-action="Assign" asp-controller="ProjectAssigned" asp-area="CompanyArea" asp-route-id="@temp.SelectedApplicationID" asp-route-data="@temp.ProjectApplicationID" class="btn btn-success">Assign Project</a>
+                </td>
+                
+            </tr>
+            SrNo++;
+        }
+    </tbody>
+</table>

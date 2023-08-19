@@ -1,0 +1,33 @@
+﻿@model EDeskOutSourcing.Models.PaymentMode
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/AdminArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>PaymentMode</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="PaymentModeID"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="PaymentModeName" class="control-label"></label>
+                <input asp-for="PaymentModeName" class="form-control" />
+                <span asp-validation-for="PaymentModeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

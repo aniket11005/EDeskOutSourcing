@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProjectDetailsVM>
+<div>
+   
+    @foreach (var temp in Model)
+    {
+          <table class="member" align="center"  width="800">
+
+            <tr>
+                <th>Project Name: @temp.ProjectName</th>
+            </tr>
+            <tr>
+                <th>Company Name: @temp.CompanyName</th>
+            </tr>
+            <tr>
+                <th>Project Description: @temp.ProjectDescription</th>
+            </tr>
+            <tr>
+                <th>Project Status: @temp.ProjectStatus</th>
+            </tr>
+            <tr>
+                <th>Project Payment Terms: @temp.ProjectPaymentTerms</th>
+            </tr> 
+            <tr>
+                <th>Project Terms & Conditions: @temp.ProjectTermsAndConditions</th>
+            </tr>
+            <tr>
+                <th>Budget: @temp.Budget</th>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-action="Apply" asp-controller="ProjectApplication" asp-area="" asp-route-id="@temp.ProjectID">Apply</a>
+                </td>
+            </tr>
+
+          </table>
+    }
+
+</div>

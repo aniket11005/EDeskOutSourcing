@@ -1,0 +1,50 @@
+﻿@model EDeskOutSourcing.Models.ProjectTaskQuery
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ProjectTaskQuery</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="ProjectTaskQueryID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="QueryTitle" class="control-label"></label>
+                <input asp-for="QueryTitle" class="form-control" />
+                <span asp-validation-for="QueryTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectTaskID" class="control-label">Task Title</label>
+                <select asp-for="ProjectTaskID" asp-items="@ViewBag.TID" class="form-control">
+                    <option>Select Task</option>
+                </select>
+                <span asp-validation-for="ProjectTaskID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QueryDescription" class="control-label"></label>
+                <input asp-for="QueryDescription" class="form-control" />
+                <span asp-validation-for="QueryDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSolved" /> @Html.DisplayNameFor(model => model.IsSolved)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

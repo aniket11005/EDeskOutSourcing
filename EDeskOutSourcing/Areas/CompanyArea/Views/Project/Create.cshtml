@@ -1,0 +1,83 @@
+﻿@model EDeskOutSourcing.Models.Project
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="ProjectName" class="control-label"></label>
+                <input asp-for="ProjectName" class="form-control" />
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectDescription" class="control-label"></label>
+                <input asp-for="ProjectDescription" class="form-control" />
+                <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="CompanyID" class="control-label"></label><br />
+                <select asp-for="CompanyID" asp-items="@ViewBag.CID">
+                </select>
+                <span asp-validation-for="CompanyID" class="text-danger"></span>*@
+                <input type="hidden" name="@Context.Session.GetString("CompanyID") class=" form-control" />
+
+            </div>  
+            <div class="form-group">
+                <label asp-for="ProjectStatus" class="control-label"></label><br />
+                <select asp-for="ProjectStatus">
+                    <option>Select Project Status</option>
+                    <option value="Uploaded">Uploaded</option>
+                    <option value="Team Formation">Team Formation</option>
+                    <option value="Started">Started</option>
+                    <option value="Terminated">Terminated</option>
+                    <option value="Finished">Finished</option>
+                </select>
+                <span asp-validation-for="ProjectStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectPaymentTerms" class="control-label"></label><br />
+                <select asp-for="ProjectStatus">
+                    <option>Select Project Payment Terms</option>
+                    <option value="One Time">One Time</option>
+                    <option value="Hourly">Hourly</option>
+                    <option value="Task Based">Task Based</option>
+                </select>                
+                <span asp-validation-for="ProjectPaymentTerms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectTermsAndConditions" class="control-label"></label>
+                <input asp-for="ProjectTermsAndConditions" class="form-control" />
+                <span asp-validation-for="ProjectTermsAndConditions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Budget" class="control-label"></label>
+                <input asp-for="Budget" class="form-control" />
+                <span asp-validation-for="Budget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpectedCompletionDurationDays" class="control-label"></label>
+                <input asp-for="ExpectedCompletionDurationDays" class="form-control" />
+                <span asp-validation-for="ExpectedCompletionDurationDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

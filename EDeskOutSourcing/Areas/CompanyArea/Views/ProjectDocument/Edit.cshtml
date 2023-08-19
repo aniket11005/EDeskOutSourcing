@@ -1,0 +1,50 @@
+﻿@model EDeskOutSourcing.Models.ProjectDocument
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ProjectDocument</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <input type="hidden" asp-for="ProjectDocumentID" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="DocumentName" class="control-label"></label>
+                <input asp-for="DocumentName" class="form-control" />
+                <span asp-validation-for="DocumentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label"></label>
+                <select asp-for="ProjectID" asp-items=@ViewBag.PID class="form-control">
+                    <option>Select Project</option>
+                </select>
+                <span asp-validation-for="ProjectID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Old Photo</label>
+                <img src="@Model.DocumentFilePath" width="100" height="100" />
+                <span asp-validation-for="DocumentFilePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Select New Photo to Upload</label>
+                <input  type="file" asp-for="PhotoFile" class="form-control" />
+                <span asp-validation-for="DocumentFilePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

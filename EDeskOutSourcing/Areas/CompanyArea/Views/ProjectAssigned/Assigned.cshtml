@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EDeskOutSourcing.ViewModels.ProjectAssignedVM>
+
+@{
+    ViewData["Title"] = "Assigned";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+<h4>Assigned Project List</h4>
+
+<div style="width:1036px;margin-left:50px;margin-right:50px;display:flex">
+    <a asp-action="Assigned" class="btn btn-success" asp-controller="ProjectAssigned" asp-area="CompanyArea" style="width:600px">Assigned Project</a>
+    <a asp-action="NotAssigned" class="btn btn-danger" asp-controller="ProjectAssigned" asp-area="CompanyArea" asp-route-id="" style="width:600px">Not Assigned Project</a>
+</div>
+
+
+<table class="table table-active col-sm-12 border-dark" >
+    <thead>
+        <tr>
+           <th>
+               Sr No
+           </th>
+            <th>
+                Freelancer Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var SrNo = 1;
+        }
+@foreach (var item in Model) {
+        <tr>
+           <td>@SrNo</td>
+           <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+           </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            <td>
+                <a asp-action="Edit"class="btn btn-success" asp-controller="ProjectAssigned" asp-route-id="">Edit</a> |
+@*                <a asp-action="Edit" asp-controller="ProjectAssigned" asp-route-id="">Details</a> |
+*@                <a asp-action="Delete" class="btn btn-danger" asp-controller="ProjectAssigned" asp-route-id="">Delete</a> 
+
+            </td>
+            
+        </tr>
+            SrNo++;
+}
+    </tbody>
+</table>

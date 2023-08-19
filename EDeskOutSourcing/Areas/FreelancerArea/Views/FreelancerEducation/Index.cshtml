@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EDeskOutSourcing.Models.FreelancerEducation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success" asp-controller="FreelancerEducation" asp-area="FreelancerArea">Create New</a>
+</p>
+<table class="table">
+    <tr>
+      @*  <th>Education Name</th>*@
+        <th>Passing Year</th>
+        <th>University Institude Name</th>
+    </tr>
+  
+    @foreach (var temp in Model)
+    {
+        <tr>
+           @* <td>@temp.Education.EducationName</td>*@
+            <td>@temp.PassingYear</td>
+            <td>@temp.UniversityInstituteName</td>
+            <td><a class="btn btn-success" asp-action="Edit" asp-controller="FreelancerEducation" asp-route-id="@temp.FreelancerEducationID">Edit</a></td>
+            <td><a class="btn btn-danger" asp-action="Delete" asp-controller="FreelancerEducation" asp-route-id="@temp.FreelancerEducationID">Delete</a></td>
+        </tr>
+    }
+</table>

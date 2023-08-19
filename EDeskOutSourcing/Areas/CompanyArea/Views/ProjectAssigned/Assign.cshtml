@@ -1,0 +1,43 @@
+﻿@model EDeskOutSourcing.Models.ProjectAssigned
+
+
+
+<h1>Assign</h1>
+
+<h4>ProjectAssigned</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Assign">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="ProjectAssignedID" class="control-label"></label>
+            <input asp-for="ProjectAssignedID" class="form-control" />
+            <span asp-validation-for="ProjectAssignedID" class="text-danger"></span>
+            </div>*@
+            <div>
+                <input type="hidden" asp-for="SelectedApplicationID" value="@ViewBag.SID" />
+                <input type="hidden" asp-for="ProjectID" value="@ViewBag.PID" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AssignDate" class="control-label"></label>
+                <input asp-for="AssignDate" class="form-control" />
+                <span asp-validation-for="AssignDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProjectApplicationVM>
+@{
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+<h1>Project Applications List</h1>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Project Name List</th>
+                <th>No of forms</th>
+            </tr>
+        </thead>
+        @{
+            var SrNo = 1;
+        }
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@SrNo</td>
+                    <td>@item.ProjectList</td>
+                    <td>@item.NoOfForms</td>
+                    <td>
+                        <a asp-action="Details" asp-controller="ProjectApplication" asp-area="CompanyArea" asp-route-id="@item.ProjectID" class="btn btn-success">Details</a>
+                    </td>
+                </tr>
+                SrNo++;
+            }
+        </tbody>
+    </table>
+</div>

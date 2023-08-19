@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model EDeskOutSourcing.Models.SelectedApplication
+
+@{
+    ViewData["Title"] = "Selected";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Selected</h1>
+
+<h4>SelectedApplication</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Selected">
+            @*<input type="hidden" asp-for="ProjectApplicationID" />*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+           @* <div class="form-group">
+                <label asp-for="SelectedApplicationID" class="control-label"></label>
+                <input asp-for="SelectedApplicationID" class="form-control" />
+                <span asp-validation-for="SelectedApplicationID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                @*<label asp-for="ProjectApplicationID" class="control-label"></label>*@
+                <input type="hidden"  asp-for="ProjectApplicationID" value="@ViewBag.PA" class="form-control" />
+                @*<span asp-validation-for="ProjectApplicationID" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectionDate" class="control-label"></label>
+                <input asp-for="SelectionDate" class="form-control" />
+                <span asp-validation-for="SelectionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NeedStartDate" class="control-label"></label>
+                <input asp-for="NeedStartDate" class="form-control" />
+                <span asp-validation-for="NeedStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnyRemark" class="control-label"></label>
+                <input asp-for="AnyRemark" class="form-control" />
+                <span asp-validation-for="AnyRemark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

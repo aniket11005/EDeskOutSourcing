@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProjectDocument>
+@*@{
+    Layout = null;
+}*@
+<h1>Project Document List</h1>
+<a asp-action="Create" asp-controller="ProjectDocument" asp-area="CompanyArea" class="btn btn-success">Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Sr No</td>
+            <td>Document Name</td>
+            <td>Document Photo </td>
+        </tr>
+    </thead>
+    @{
+        var SrNo = 1;
+    }
+    <tbody>
+        @foreach (var temp in Model)
+        {
+                <tr>
+                    <td>@SrNo</td>
+                    <td>@temp.DocumentName</td>
+                    <td>
+                    <img src="@Href(temp.DocumentFilePath)" width="100" height="100" />
+                    </td>
+                    <td>
+                    <a asp-action="Edit" asp-controller="ProjectDocument" asp-area="CompanyArea" asp-route-id="@temp.ProjectDocumentID" class="btn btn-success">Edit</a>
+                    <a asp-action="Delete" asp-controller="ProjectDocument" asp-area="CompanyArea" asp-route-id="@temp.ProjectDocumentID" class="btn btn-success">Delete</a>
+                    </td>
+                </tr>
+                SrNo++;
+        }
+    </tbody>
+</table>

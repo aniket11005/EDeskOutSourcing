@@ -1,0 +1,40 @@
+﻿@model EDeskOutSourcing.Models.ProjectTaskDocument
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ProjectTaskDocument</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <input type="hidden" asp-for="ProjectTaskDocumentID"  />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" value="@ViewBag.TID" asp-for="ProjectTaskID" class="form-control" />
+            </div>
+             <div class="form-group">
+                <label class="control-label">Old Photo</label>
+                <img src="@Model.ProjectDocumentFilePath" width="100" height="100" />
+                <span asp-validation-for="ProjectDocumentFilePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectDocumentFilePath" class="control-label"> Select New Photo</label>
+                <input type="file" asp-for="PhotoFile" class="form-control" />
+                <span asp-validation-for="ProjectDocumentFilePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

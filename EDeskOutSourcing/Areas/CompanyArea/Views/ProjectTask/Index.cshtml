@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProjectTask>
+<h2>Project Task list</h2>
+<a asp-action="Create" asp-controller="ProjectTask" asp-area="CompanyArea" class="btn btn-success">Create</a><br /><br />
+@*<div style="width:1036px;margin-left:50px;margin-right:50px;display:flex">
+    <a asp-action="Index" class="btn btn-warning" asp-controller="ProjectTask" asp-area="CompanyArea" style="width:600px">New Task</a>
+    <a asp-action="AssignTask" class="btn btn-success" asp-controller="ProjectTask" asp-area="CompanyArea" asp-route-id="" style="width:600px">Assigned Task</a>
+</div>*@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>Task Title</th>
+            <th>Task Description</th>
+            <th>Task Amount</th>
+            <th>Task Status</th>
+        </tr>
+    </thead>
+    @{
+        var SrNo = 1;
+    }
+    <tbody>
+        @foreach (var item in Model)
+        {
+           <tr>
+               <td>@SrNo</td>
+               <td>@item.TaskTitle</td>
+               <td>@item.TaskDescription</td>
+               <td>@item.TaskAmount</td>
+               <td>@item.TaskStatus</td>
+               <td>
+                   <a asp-action="Edit" asp-controller="ProjectTask" asp-route-id="@item.ProjectTaskID" asp-area="CompanyArea" class="btn btn-success">Edit</a>
+                    <a asp-action="Details" asp-controller="ProjectTask" asp-route-id="@item.ProjectTaskID" asp-area="CompanyArea" class="btn btn-primary">Details</a>
+@*                   <a asp-action="Create" asp-controller="ProjectTask" asp-area="CompanyArea" class="btn btn-success">Create</a>
+*@               </td>
+           </tr>
+           SrNo++;
+        }
+    </tbody>
+</table>

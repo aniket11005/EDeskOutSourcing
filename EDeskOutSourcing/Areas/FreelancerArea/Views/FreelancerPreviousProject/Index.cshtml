@@ -1,0 +1,29 @@
+﻿@model IEnumerable<FreelancerPreviousProject>
+@{
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+}
+<h1>Index Details</h1>
+<a asp-action="Create" asp-controller="FreelancerPreviousProject" asp-area="FreelancerArea" class="btn btn-success">Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Project Title</td>
+            <td>Project Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var temp in Model)
+        {
+            <tr>
+                <td>@temp.ProjectTitle</td>
+                <td>
+                    @temp.ProjectDescription
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="FreelancerPreviousProject" asp-area="FreelancerArea" asp-route-id="@temp.FreelancerPreviousProjectsID" class="btn btn-success">Edit</a>
+                    <a asp-action="Delete" asp-controller="FreelancerPreviousProject" asp-area="FreelancerArea" asp-route-id="@temp.FreelancerPreviousProjectsID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

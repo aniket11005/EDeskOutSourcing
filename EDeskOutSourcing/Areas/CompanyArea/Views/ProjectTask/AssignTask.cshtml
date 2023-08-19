@@ -1,0 +1,61 @@
+﻿@model EDeskOutSourcing.Models.ProjectTask
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/CompanyArea/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ProjectTask</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="TaskTitle" class="control-label">Task Title</label>
+                <input asp-for="TaskTitle" class="form-control" />
+                <span asp-validation-for="TaskTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label">Project Name</label>
+                <select asp-for="ProjectID" asp-items="@ViewBag.PID" class="form-control">
+                    <option>Select Project</option>
+                </select>
+                <span asp-validation-for="ProjectID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskDescription" class="control-label">Task Description</label>
+                <input asp-for="TaskDescription" class="form-control" />
+                <span asp-validation-for="TaskDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskAmount" class="control-label">Task Amount</label>
+                <input asp-for="TaskAmount" class="form-control" />
+                <span asp-validation-for="TaskAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskStatus" class="control-label">Task Status</label>
+                <select asp-for="TaskStatus" class="form-control">
+                    <option>Select Status</option>
+                    <option value="Created">Created</option>
+                    <option value="Assigned">Assigned</option>
+                    <option value="Reported">Reported</option>
+                    <option value="Comflicted">Comflicted</option>
+                    <option value="Closed">Closed</option>
+                </select>
+                <span asp-validation-for="TaskStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

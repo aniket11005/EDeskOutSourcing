@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FreelancerCertifications>
+@{
+    Layout = "~/Areas/FreelancerArea/Views/Shared/_Layout.cshtml";
+}
+<h1>Index Details</h1>
+<a asp-action="Create" asp-controller="FreelancerCertifications" asp-area="FreelancerArea" class="btn btn-success">Create</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Certificate Title</td>
+            <td>Passing Year </td>
+            <td>University Institute Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var temp in Model)
+        {
+            <tr>
+                <td>@temp.CertificateTitle</td>
+                <td>
+                    @temp.PassingYear
+                </td>
+                <td>
+                    @temp.UniversityInstituteName
+                    </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="FreelancerCertifications" asp-area="FreelancerArea" asp-route-id="@temp.FreelancerCertificationsID" class="btn btn-success">Edit</a>
+                    <a asp-action="Delete" asp-controller="FreelancerCertifications" asp-area="FreelancerArea" asp-route-id="@temp.FreelancerCertificationsID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
